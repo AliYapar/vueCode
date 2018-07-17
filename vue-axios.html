@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Axios</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{mesaj}}
+    </div>
+    <script>
+    
+        var vuePrj =  new Vue({
+            el:'#app',
+            data:{
+                mesaj: 'test'
+            },
+            created: function () {
+                var _t = this;
+                axios.get('http://www.mocky.io/v2/5b10e7882f0000710034f15c')
+                .then(function(veri) {
+                    _t.mesaj = veri.data;
+                })
+            }
+        })
+
+    </script>
+</body>
+</html>
